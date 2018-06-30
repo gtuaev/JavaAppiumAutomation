@@ -54,7 +54,7 @@ public class Ex2 {
         String article_title = title_element.getAttribute("text");
 
         Assert.assertEquals(
-                "Search field was not found",
+                "The text in the search field does not match the expected",
                 "Search…",
                 article_title
         );
