@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68779367-04aa-4d4e-91c1-47da72bac737" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Ex5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ex5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ex5.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,14 +33,12 @@
       <file leaf-file-name="Ex5.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Ex5.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+            <state relative-caret-position="271">
+              <caret line="41" column="22" lean-forward="true" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#832#833#0" expanded="true" />
                 <element signature="e#861#862#0" expanded="true" />
-                <element signature="e#3299#3300#0" expanded="true" />
-                <element signature="e#3327#3328#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -85,7 +82,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="13" />
     <option name="y" value="27" />
     <option name="width" value="1707" />
@@ -297,9 +294,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FirstTest_testAmountOfEmptySearch - 2018.07.07 at 16h 55m 26s.xml">
-      <configuration name="FirstTest.testAmountOfEmptySearch" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="FirstTest_testAmountOfEmptySearch - 2018.07.07 at 16h 57m 05s.xml">
       <configuration name="FirstTest.testAmountOfEmptySearch" configurationId="JUnit" />
     </history-entry>
@@ -325,6 +319,9 @@
       <configuration name="Ex5.testSaveOfTwoArticle" configurationId="JUnit" />
     </history-entry>
     <history-entry file="Ex5_testSaveOfTwoArticle - 2018.07.07 at 18h 43m 34s.xml">
+      <configuration name="Ex5.testSaveOfTwoArticle" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Ex5_testSaveOfTwoArticle - 2018.07.07 at 18h 49m 38s.xml">
       <configuration name="Ex5.testSaveOfTwoArticle" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -444,14 +441,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Ex5.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+        <state relative-caret-position="271">
+          <caret line="41" column="22" lean-forward="true" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#832#833#0" expanded="true" />
             <element signature="e#861#862#0" expanded="true" />
-            <element signature="e#3299#3300#0" expanded="true" />
-            <element signature="e#3327#3328#0" expanded="true" />
           </folding>
         </state>
       </provider>
