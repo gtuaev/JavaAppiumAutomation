@@ -61,10 +61,10 @@ public class Ex6 {
         );
         List<WebElement> title_list = assertElementPresent(
                 By.id("org.wikipedia:id/view_page_title_text"),
-                "Cannot find elements with class 'LinearLayout'"
+                "Can not find type elements title"
         );
         int titles_count = title_list.size();
-        Assert.assertTrue("the condition is not met by search results", titles_count > 0);
+        Assert.assertTrue("Title not found, condition not met", titles_count > 0);
     }
 
 
