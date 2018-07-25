@@ -1,8 +1,9 @@
 package lib.ui;
-
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import java.util.List;
+import static org.junit.Assert.assertTrue;
 
 public class ArticlePageObject extends MainPageObject
 {
@@ -99,13 +100,25 @@ public class ArticlePageObject extends MainPageObject
         );
     }
 
-    public void closeArticle()
+    public void closeArticle()                // Метод закрытия статьи
     {
         this.waitForElementAndClick(
                 By.xpath(CLOSE_ARTICLE_BUTTON),
                 "Cannot close article. cannot find X link",
                 5
         );
+    }
+
+    public void assertElementPresent(String error_message)         // Метод проверки заголовка статьи без ожидания
+    {
+        List<WebElement> elements = driver.findElements(By.id(TITLE));
+        int article_present = elements.size();
+        for(WebElement element: elements)
+        {
+            String tittle = element.getText();
+            String error = error_message + tittle;
+            assertTrue (error, article_present > 0);
+        }
     }
 
 
