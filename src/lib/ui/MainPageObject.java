@@ -34,6 +34,14 @@ public class MainPageObject {
         return waitForElementPresent(by, error_message,5);
     }
 
+    public List<WebElement> waitForElementsPresent(By by, String error_message, long timeoutInSeconds)    // установка метода ожидания многих элементов
+    {
+        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+        wait.withMessage(error_message + "\n");
+        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by)); // условие появления всех элементов, удовлетворяющих запросу
+
+    }
+
     public WebElement waitForElementAndClick(By by, String error_message, long timeoutInSeconds)
     {
         WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);

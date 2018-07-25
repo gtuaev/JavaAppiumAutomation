@@ -13,7 +13,7 @@ public class NavigationUi extends MainPageObject {
         super(driver);
     }
 
-    public void clikcMyLists()
+    public void clikcMyLists()     // Метод клика на иконку "Мои списки"
     {
         this.waitForElementAndClick(
                 By.xpath(MY_LISTS_LINK),

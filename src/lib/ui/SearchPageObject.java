@@ -2,6 +2,9 @@ package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class SearchPageObject extends MainPageObject
 {
@@ -11,7 +14,10 @@ public class SearchPageObject extends MainPageObject
             SEARCH_CANCEL_BUTTON = "org.wikipedia:id/search_close_btn",
             SEARCH_RESULT_BY_SUBSTRING_TPL = "//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='{SUBSTRING}']",
             SEARCH_RESULT_ELEMENT = "//*[@resource-id='org.wikipedia:id/search_results_list']/*[@resource-id='org.wikipedia:id/page_list_item_container']",
-            SEARCH_EMPTY_RESULT_ELEMENT = "//*[@text='No results found']";
+            SEARCH_EMPTY_RESULT_ELEMENT = "//*[@text='No results found']",
+            SEARCH_RESULTS_LIST = "org.wikipedia:id/search_results_list",
+            SEARCH_PLACEHOLDER = "org.wikipedia:id/search_src_text",
+            SEARCH_RESULTS_ELEMENTS = "//*[@resource-id='org.wikipedia:id/search_results_list']//*[contains(@class,'android.widget.LinearLayout')]";
 
     public SearchPageObject(AppiumDriver driver)
     {
@@ -19,44 +25,45 @@ public class SearchPageObject extends MainPageObject
     }
 
     /* TEMPLATES METHODS */
-    private static String getResuiltSearchElement(String substring)
+    private static String getResuiltSearchElement(String substring)       // Заменяем подстроку в xpath на вводимую нами
     {
         return SEARCH_RESULT_BY_SUBSTRING_TPL.replace("{SUBSTRING}", substring);
     }
     /* TEMPLATES METHODS */
 
-    public void initSearchInput()
+    public void initSearchInput()          // Метод "нажимания" на поисковую строку на главной
     {
         this.waitForElementAndClick(By.xpath(SEARCH_INIT_ELEMENT), "Cannot find and click search init element", 5);
         this.waitForElementPresent(By.xpath(SEARCH_INIT_ELEMENT), "Cannot find search input after clicking searching init element");
     }
 
-    public void waitForCancelButtonToAppear()
+    public void waitForCancelButtonToAppear()         // Метод проверки наличия кнопки отмены поиска
     {
         this.waitForElementPresent(By.id(SEARCH_CANCEL_BUTTON), "Cannot find search cancel button!", 5);
     }
-    public void waitForCancelButtonToDisappear()
+    public void waitForCancelButtonToDisappear()       // Метод проверки отсутствия кнопки отмены поиска
     {
         this.waitForElementNotPresent(By.id(SEARCH_CANCEL_BUTTON), "Search cancel button is still present!", 5);
     }
 
-    public void clickCancelSearch()
+    public void clickCancelSearch()         // Метод клика на кнопку отмены поиска
+
     {
         this.waitForElementAndClick(By.id(SEARCH_CANCEL_BUTTON), "Cannot find and click search cancel button", 5);
     }
 
-    public void typeSearchLine(String search_line)
+    public void typeSearchLine(String search_line)        // Метод ввода поискового запроса, текст задается в переменной
     {
         this.waitForElementAndSendKeys(By.xpath(SEARCH_INPUT), search_line, "Cannot find and type into search input", 5);
     }
 
-    public void waitForSearchResult(String substring)
+    public void waitForSearchResult(String substring)        // Метод проверки корректной подстроки в открытой статье
     {
         String  search_result_xpath = getResuiltSearchElement(substring);
         this.waitForElementPresent(By.xpath(search_result_xpath), "Cannot find search result with substring" + substring);
     }
 
-    public void clickByArticleWithSubstring(String substring)
+    public void clickByArticleWithSubstring(String substring)     // Метод проверки корректной подстроки в открытой статье
     {
         String  search_result_xpath = getResuiltSearchElement(substring);
         this.waitForElementAndClick(By.xpath(search_result_xpath), "Cannot find and click search result with substring" + substring, 10);
@@ -81,6 +88,21 @@ public class SearchPageObject extends MainPageObject
     public void assertThereIsNoResultOfSearch()
     {
         this.assertElementNotPresent(By.xpath(SEARCH_RESULT_ELEMENT), "We supposed not to find any results");
+    }
+
+    public List<WebElement> waitForAllResultsPresent()             // Метод получения всех результатов поиска
+    {
+        return this.waitForElementsPresent(By.xpath(SEARCH_RESULTS_ELEMENTS),"Cannot find elements with class 'LinearLayout'", 15);
+    }
+
+    public void waitForSearchResultsDisappear()    // Метод проверки отсутствия рез-тов поиска (по блокам)
+    {
+        this.waitForElementNotPresent(By.id(SEARCH_RESULTS_LIST), "Search result list is still present", 5);
+    }
+
+    public void searchClear()     // Метод очистки поля поиска
+    {
+        this.waitForElementAndClear(By.id(SEARCH_PLACEHOLDER), "Cannot find search field to clear it", 5);
     }
 
 

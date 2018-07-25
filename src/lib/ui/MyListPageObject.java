@@ -11,12 +11,14 @@ public class MyListPageObject extends MainPageObject {
             CLICK_BY_ARTICLE_MY_LIST = "org.wikipedia:id/page_list_item_container";
 
 
-    private static String getFolderXpathByName(String name_of_folder)
+
+    /*TEMPLATES METHODS */
+    private static String getFolderXpathByName(String name_of_folder)       // Метод замены в xpath названия папки
     {
         return FOLDER_BY_NAME_TPL.replace("{FOLDER_NAME}", name_of_folder);
     }
 
-    private static String getSavedArticleXpathByTitle(String article_title)
+    private static String getSavedArticleXpathByTitle(String article_title)  // Метод замены в xpath заголовка статьи
     {
         return ARTICLE_BY_TITLE_TPL.replace("{TITLE}", article_title);
     }
@@ -26,7 +28,7 @@ public class MyListPageObject extends MainPageObject {
         super(driver);
     }
 
-    public void openFolderByName(String name_of_folder)
+    public void openFolderByName(String name_of_folder)                     // Метод клика на список
     {
         String folder_name_xpath = getFolderXpathByName(name_of_folder);
         this.waitForElementAndClick(
@@ -36,19 +38,19 @@ public class MyListPageObject extends MainPageObject {
         );
     }
 
-    public void waitForArticleToAppearByTitle(String article_title)
+    public void waitForArticleToAppearByTitle(String article_title)        // Метод ожидания наличия статьи по заголовку
     {
         String article_xpath = getFolderXpathByName(article_title);
         this.waitForElementPresent(By.xpath(article_xpath), "Cannot find saved article by title" + article_title, 15);
     }
 
-    public void waitForArticleToDisappearByTitle(String article_title)
+    public void waitForArticleToDisappearByTitle(String article_title)       // Метод ожидания отсутствия статьи по заголовку
     {
         String article_xpath = getFolderXpathByName(article_title);
         this.waitForElementNotPresent(By.xpath(article_xpath), "Saved article still present with title" + article_title, 15);
     }
 
-    public void swipeByArticleToDelete(String article_title)
+    public void swipeByArticleToDelete(String article_title)                // Метод свайпа влево для удаления статьи по заголовку
     {
         this.waitForArticleToAppearByTitle(article_title);
         String article_xpath = getFolderXpathByName(article_title);
@@ -61,7 +63,7 @@ public class MyListPageObject extends MainPageObject {
 
     }
 
-    public void clicklArticleMyList()
+    public void clicklArticleMyList()               // Метод клика по статье внутри списка
     {
         this.waitForElementAndClick(
                 By.id(CLICK_BY_ARTICLE_MY_LIST),
