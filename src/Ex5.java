@@ -3,6 +3,7 @@ import lib.ui.ArticlePageObject;
 import lib.ui.MyListPageObject;
 import lib.ui.NavigationUi;
 import lib.ui.SearchPageObject;
+import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
 
@@ -10,7 +11,7 @@ public class Ex5 extends CoreTestCase {
     @Test
     public void testSaveOfTwoArticle()
     {
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
+        SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
         SearchPageObject.initSearchInput();
         SearchPageObject.typeSearchLine("Java");
         SearchPageObject.clickByArticleWithSubstring("Java");
